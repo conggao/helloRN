@@ -11,35 +11,41 @@ import {
     StyleSheet,
     Text,
     View,
-    Navigator
+    Navigator,
+    Button
 } from 'react-native';
 
 export default class helloRN extends Component {
     render() {
         return (
-            <Navigator
-                initialRoute={{ title: 'My Initial Scene', index: 0 }}
-                renderScene={(route, navigator) =>
-          <MyScene title={route.title}
-            // Function to call when a new scene should be displayed
-            onForward={ () => {
-              const nextIndex = route.index + 1;
-              navigator.push({
-                  title: 'Scene ' + nextIndex,
-                  index: nextIndex,
-              });
-            }}
+        <Navigator
+            initialRoute={{title: 'My Initial Scene', index: 0}}
+            renderScene={(route, navigator) =>
+                <MyScene title={route.title}
+                    // Function to call when a new scene should be displayed
+                         onForward={ () => {
+                             const nextIndex = route.index + 1;
+                             navigator.push({
+                                 title: 'Scene ' + nextIndex,
+                                 index: nextIndex,
+                             });
+                         }}
 
-            // Function to call to go back to the previous scene
-            onBack={() => {
-              if (route.index > 0) {
-                navigator.pop();
-              }
-            }}
-          />
-        }
-            />
-        )
+                    // Function to call to go back to the previous scene
+                         onBack={() => {
+                             if (route.index > 0) {
+                                 navigator.pop();
+                             }
+                         }}
+                />
+            }
+        />
+        < Button
+        title = "Learn More"
+        color = "#841584"
+        accessibilityLabel = "Learn more about this purple button"
+            / >
+    )
     }
 }
 
